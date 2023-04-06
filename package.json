@@ -15,6 +15,7 @@
     "@types/react-dom": "18.0.11",
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.3.2",
+    "baffle": "^0.3.6",
     "cannon": "^0.6.2",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",

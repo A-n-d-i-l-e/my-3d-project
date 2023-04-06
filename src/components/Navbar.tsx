@@ -81,22 +81,22 @@ const Navbar: React.FC = () => {
         </li>
             <span style={dividerStyle}>|</span>
         <li style={{ marginRight: "15px" }}>
-          <Link href="/gallery">
+          <Link href="/gallerypage">
             <span style={linkStyle}>GALLERY</span>
           </Link>
         </li>
         <span style={dividerStyle}>|</span>
         <li style={{ marginRight: "15px" }}>
           <Link href="/page4">
+            <span style={linkStyle}>Marketplace</span>
+          </Link>
+        </li>
+        <span style={dividerStyle}>|</span>
+        <li>
+          <Link href="/page5">
             <span style={linkStyle}>REDEEM</span>
           </Link>
         </li>
-        {/* <span style={dividerStyle}>|</span>
-        <li>
-          <Link href="/page5">
-            <span style={linkStyle}>Page 5</span>
-          </Link>
-        </li> */}
       </ul>
       <div style={hamburgerStyle}>
         <Hamburger />

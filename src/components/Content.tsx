@@ -1,66 +1,83 @@
-import React from 'react';
-import { Element } from 'react-scroll';
-import styles from './Content.module.css';
+import React, { CSSProperties, useEffect, useRef } from "react";
 import theme from "../theme/theme";
-
-
-
-const ulStyle = {
-  display: "row",
-  // flexDirection: "row",
-  listStyleType: "none",
-  padding: 1,
-  marginRight: "900px",
-  alignItems: "center",
-  justifyContent: "center",
-  fontSize: "1.7rem", // Change the font size here
-  fontFamily: theme.typography.nav.fontFamily,
-  fontWeight: theme.typography.nav.fontWeight,
-  textTransform: theme.typography.nav.textTransform as "uppercase",
-};
+import baffle from "baffle";
 
 const Content: React.FC = () => {
+  const containerStyle: CSSProperties = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "90vh",
+    position: "relative",
+  };
+
+  const logoStyle: CSSProperties = {
+    alignSelf: 'center',
+    width: '300px',
+    height: '600px',
+    marginTop: '-370px',
+  };
+
+  const textContainerStyle: CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-end",
+    position: "absolute",
+    right: "70px",
+    bottom: "-40px",
+  };
+
+  const textStyle1: CSSProperties = {
+    fontSize: "74px",
+    fontFamily: theme.typography.title1.fontFamily,
+    fontWeight: theme.typography.title1.fontWeight,
+    marginBottom: "0px",
+  };
+
+  const textStyle2: CSSProperties = {
+    fontSize: "150px",
+    fontFamily: theme.typography.title2.fontFamily,
+    fontWeight: theme.typography.title2.fontWeight,
+  };
+
+  const text1Ref = useRef<HTMLSpanElement>(null);
+  const text2Ref = useRef<HTMLSpanElement>(null);
+  const text3Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (text1Ref.current && text2Ref.current && text3Ref.current) {
+      const baffleText1 = baffle(text1Ref.current, { characters: "░" });
+      const baffleText2 = baffle(text2Ref.current, { characters: "░" });
+      const baffleText3 = baffle(text3Ref.current, { characters: "░" });
+
+
+      baffleText1.start();
+      baffleText2.start();
+      baffleText3.start();
+
+      setTimeout(() => {
+        baffleText1.reveal(100);
+        baffleText2.reveal(103);
+        baffleText3.reveal(106);
+      }, 350);
+    }
+  }, []);
+
   return (
-    <div className={styles.content}>
-      <nav style={{ paddingTop: '100px' }}>
-       <ul style={ulStyle}>
-         <li><a href="#project-overview">Project Overview</a></li>
-         <li><a href="#the-collection">The Collection</a></li>
-         <li><a href="#states-tokenomics">States Tokenomics</a></li>
-         <li><a href="#smart-contracts">Smart Contracts</a></li>
-         <li><a href="#kyc">KYC</a></li>
-         <li><a href="#about-us">About Us</a></li>
-         <li><a href="#the-team">The Team</a></li>
-       </ul>
-      </nav>
-      <Element name="project-overview" style={{ marginTop: '500px' }}>
-        <h1>Project Overview</h1>
-        <p>This is the project overview section.</p>
-      </Element>
-      <Element name="the-collection">
-        <h1>The Collection</h1>
-        <p>This is the collection section.</p>
-      </Element>
-      <Element name="states-tokenomics">
-        <h1>States Tokenomics</h1>
-        <p>This is the states tokenomics section.</p>
-      </Element>
-      <Element name="smart-contracts">
-        <h1>Smart Contracts</h1>
-        <p>This is the smart contracts section.</p>
-      </Element>
-      <Element name="kyc">
-        <h1>KYC</h1>
-        <p>This is the KYC section.</p>
-      </Element>
-      <Element name="about-us">
-        <h1>About Us</h1>
-        <p>This is the about us section.</p>
-      </Element>
-      <Element name="the-team">
-        <h1>The Team</h1>
-        <p>This is the team section.</p>
-      </Element>
+    <div style={containerStyle}>
+      <img src="/Wild5_Logo_20230322.svg" alt="Wild5 Logo" style={logoStyle} />
+      <div style={textContainerStyle}>
+        <span ref={text1Ref} style={textStyle1}>
+          THE WORLD'S MOST
+        </span>
+        <span ref={text2Ref} style={textStyle1}>
+          ACCESSIBLE
+        </span>
+        <div ref={text3Ref} style={textStyle2}>
+          WINE NFT
+        </div>
+      </div>
     </div>
   );
 };

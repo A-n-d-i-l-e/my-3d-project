@@ -1,47 +1,192 @@
-import React, { useState } from "react";
-import { Menu, Dropdown } from "antd";
-import { MenuOutlined, AppstoreOutlined, MailOutlined, SettingOutlined } from "@ant-design/icons";
-import type { MenuProps } from "antd";
-
-type MenuItem = Required<MenuProps>["items"][number];
-
-function getItem(label: React.ReactNode, key: React.Key, icon?: React.ReactNode, children?: MenuItem[], type?: "group"): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  } as MenuItem;
-}
-
-const items: MenuItem[] = [
-  getItem("Navigation One", "sub1", <MailOutlined />, [
-    getItem("Option 1", "1"),
-    getItem("Option 2", "2"),
-    getItem("Option 3", "3"),
-    getItem("Option 4", "4"),
-  ]),
-  getItem("Navigation Two", "sub2", <AppstoreOutlined />, [
-    getItem("Option 5", "5"),
-    getItem("Option 6", "6"),
-    getItem("Submenu", "sub3", null, [getItem("Option 7", "7"), getItem("Option 8", "8")]),
-  ]),
-  getItem("Navigation Three", "sub4", <SettingOutlined />, [
-    getItem("Option 9", "9"),
-    getItem("Option 10", "10"),
-    getItem("Option 11", "11"),
-    getItem("Option 12", "12"),
-  ]),
-];
+import React from 'react';
+import { Dropdown } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Hamburger: React.FC = () => {
   const menu = (
-    <Menu
-      mode="vertical"
-      style={{ width: 256 }}
-      items={items}
-    />
+    <ul style={{ backgroundColor: 'rgba(245, 245, 245, 0.6)', borderRadius: '8px', padding: '10px' }}>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="project-overview"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          Project Overview
+        </ScrollLink>
+      </li>
+      <ScrollLink
+          activeClass="active"
+          to="the-collection"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          The Collection
+        </ScrollLink>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="the-wine"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          The Wine
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="the-cellar"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          The Cellar
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="tokenomics"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          Tokenomics
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="media"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          Media
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="about-us"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          About Us
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="the-team"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          The Team
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="stats"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          Stats
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="alpha"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          Alpha
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="kyc"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          KYC
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="ts-and-cs"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          T's & C's
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="partners-and-suppliers"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          Partners & Suppliers
+        </ScrollLink>
+      </li>
+      <li>
+        <ScrollLink
+          activeClass="active"
+          to="holders-contact-form"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="link-style"
+        >
+          Holders Contact Form
+        </ScrollLink>
+      </li>
+    </ul>
   );
 
   return (

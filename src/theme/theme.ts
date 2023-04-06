@@ -19,6 +19,16 @@ const theme = {
       fontWeight: 300,
       textTransform: "uppercase",
     },
+    title1:  {
+      fontFamily: "'Oswald', sans-serif",
+      fontWeight: 300,
+      textTransform: "uppercase",
+    },
+    title2:  {
+      fontFamily: "'Oswald', sans-serif",
+      fontWeight: 300,
+      textTransform: "uppercase",
+    },
   },
 };
 

@@ -1,7 +1,22 @@
+/* Global styles and resets */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-image: linear-gradient(to bottom right, #7EA594, #4F647A);
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
 }
 
 a {
@@ -9,22 +24,56 @@ a {
   text-decoration: none;
 }
 
-
-
+/* Mobile styles */
 .hamburger {
   position: absolute;
   top: 20px;
   right: 20px;
 }
 
-@media (min-width: 576px) {
+.gallery-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.link-style {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+}
+
+li {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 5px 0;
+  padding: 8px 10px;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+
   .hamburger {
     top: 30px;
     right: 30px;
   }
 }
 
+/* Desktop styles */
 @media (min-width: 992px) {
+  body {
+    font-size: 20px;
+  }
+
   .hamburger {
     top: 40px;
     right: 40px;
